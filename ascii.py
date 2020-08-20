@@ -13,7 +13,7 @@ def draw(event):
 
 def my_button():
     f = open("output.txt","w+")
-    f.write(' ')
+    f.write('..')
     for val in grid:
         isInBounds(val)
         if val[0] % canvasSize - res == 0 and val[0] != 0:
@@ -22,7 +22,7 @@ def my_button():
             f.write('#.')
             print (val)
         else:
-            f.write('  ')
+            f.write('..')
     f.close()
 
 def isInBounds(val):
