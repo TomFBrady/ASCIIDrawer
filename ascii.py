@@ -13,17 +13,17 @@ def myfunction(event):
 
 def my_button():
     f = open("output.txt","w+")
-    f.write('.')
+    f.write(' ')
     for val in grid:
         isInBounds(val)
         print (val)
-        if val[0] % 390 == 0 and val[0] != 0:
+        if val[0] % canvasSize - res == 0 and val[0] != 0:
             f.write('\n')
         if(val in validSquares):
             f.write('#.')
             print (val)
         else:
-            f.write('..')
+            f.write('  ')
     f.close()
 
 def isInBounds(val):
@@ -33,9 +33,10 @@ def isInBounds(val):
             canvas.create_rectangle(val[0], val[1], val[0] + res, val[1]+res, outline="#000000", fill="#69f420")
             break
 
-res = 5
+res = 10
+canvasSize = 400
 root = tk.Tk()
-canvas = tk.Canvas(root, width=400, height=400)
+canvas = tk.Canvas(root, width=canvasSize, height=canvasSize)
 canvas.pack()
 canvas.old_coords = None
 coordinates = list()
@@ -44,8 +45,8 @@ validSquares = set()
 root.bind('<B1-Motion>', myfunction)
 root.bind('<ButtonRelease-1>', myfunction)
 
-for x in range(0, 400, res):
-    for y in range(0, 400, res):
+for x in range(0, canvasSize, res):
+    for y in range(0, canvasSize, res):
         grid.append((y,x))
 
 frame = tk.Frame(root)
