@@ -16,7 +16,6 @@ def my_button():
     f.write(' ')
     for val in grid:
         isInBounds(val)
-        print (val)
         if val[0] % canvasSize - res == 0 and val[0] != 0:
             f.write('\n')
         if(val in validSquares):
