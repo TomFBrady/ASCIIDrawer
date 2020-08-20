@@ -1,7 +1,7 @@
 import tkinter as tk
 
 
-def myfunction(event):
+def draw(event):
     x, y = event.x, event.y
     coordinates.append((x, y))
     if canvas.old_coords:
@@ -42,8 +42,8 @@ canvas.old_coords = None
 coordinates = list()
 grid = list()
 validSquares = set()
-root.bind('<B1-Motion>', myfunction)
-root.bind('<ButtonRelease-1>', myfunction)
+root.bind('<B1-Motion>', draw)
+root.bind('<ButtonRelease-1>', draw)
 
 for x in range(0, canvasSize, res):
     for y in range(0, canvasSize, res):
